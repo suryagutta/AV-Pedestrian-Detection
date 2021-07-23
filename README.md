@@ -58,9 +58,53 @@ YOLOv5 🚀 is a family of object detection architectures and models pretrained 
 See the [YOLOv5 Docs](https://docs.ultralytics.com) for full documentation on training, testing and deployment.
 
 
+## <div align="center">Setup and Run on AWS</div>
+<details open>
+<summary>Setup Weights & Biases account</summary>  
+  
+Login to [wandb.ai](https://wandb.ai/) website and cpy the following:  
+* API Key from [wandb.ai/authorize](https://wandb.ai/authorize)  
+* Team name from [wandb.ai/settings](https://wandb.ai/settings). Default team name will be the user id.  
+</details>
+
+<details open>
+<summary>Create Instance</summary>  
+  
+* While creating the instance, choose '**Deep Learning AMI (Ubuntu 18.04) Version 47.0 - ami-01f1096e6659d38fa**' AMI as it has the required libraries for deep learning task.  
+* Select **P3** instance for 'Instance Type'  
+<details open>
+<summary>Install dependencies</summary>
+ After login to AWS instance, create conda environment using the following commands:  
+  
+```bash
+$ conda create -n test python=3.9.6 wandb
+$ conda activate test  # login to test environment
+$ git clone https://github.com/ultralytics/yolov5 # clone the latest yolov5
+$ cd yolov5
+$ pip install -r requirements.txt
+ 
+# Env for W&B
+$ export WANDB_API_KEY=337....4a8 # Key from https://wandb.ai/authorize
+$ export WANDB_ENTITY=user_team_name # Team name from https://wandb.ai/settings
+$ export WANDB_PROJECT=yolov5
+```
+</details>
+<details open>
+<summary>Train, Val, and Test</summary> 
+  
+```bash
+# Train a model. By default, it uses data/coco128.yaml and runs for 300 epochs. Dataset is downloaded from  https://github.com/ultralytics/yolov5/releases/download/v1.0/coco128.zip (128 images under images/train2017 from coco128.zip)
+$ python train.py  
+
+# Validate a model for Precision, Recall and mAP (128 images under images/train2017 from coco128.zip).
+$ python val.py --weights yolov5s.pt    
+
+# There are two images. We can use our custom images.
+$ python detect.py --weights yolov5s.pt --source /home/ubuntu/yolov5/data/images   
+```
+</details>
+  
 ## <div align="center">Quick Start Examples</div>
-
-
 <details open>
 <summary>Install</summary>
 
