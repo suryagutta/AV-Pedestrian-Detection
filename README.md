@@ -60,9 +60,9 @@ See the [YOLOv5 Docs](https://docs.ultralytics.com) for full documentation on tr
 
 ## <div align="center">Setup and Run on AWS</div>
 <details open>
-<summary>Setup Weights & Biases account</summary>  
+<summary>Setup Weights & Biases account (if you do not have one)</summary>  
   
-Login to [wandb.ai](https://wandb.ai/) website and cpy the following:  
+Login to [wandb.ai](https://wandb.ai/) website and copy the following:  
 * API Key from [wandb.ai/authorize](https://wandb.ai/authorize)  
 * Team name from [wandb.ai/settings](https://wandb.ai/settings). Default team name will be the user id.  
 </details>
@@ -70,11 +70,14 @@ Login to [wandb.ai](https://wandb.ai/) website and cpy the following:
 <details open>
 <summary>Create Instance</summary>  
   
-* While creating the instance, choose '**Deep Learning AMI (Ubuntu 18.04) Version 47.0 - ami-01f1096e6659d38fa**' AMI as it has the required libraries for deep learning task.  
-* Select **P3** instance for 'Instance Type'  
+* While creating the instance, choose '**Deep Learning AMI (Ubuntu 18.04) Version 47.0 - ami-01f1096e6659d38fa**' AMI as it has the required libraries for deep learning task. We can find this if we search for the ‘deep learning’ in the ‘Choose Amazon Machine Image (AMI)’ step.   
+* Select **P3** instance for ‘Instance Type’. Instance type p3.2xlarge is enough.  
+* To save the cost, select spot instance under the ‘Configure Instance’ step.  
+</details>
+
 <details open>
 <summary>Install dependencies</summary>
- After login to AWS instance, create conda environment using the following commands:  
+ After login to AWS instance, create conda environment using the following commands and set the Weights & Bias environment variables:  
   
 ```bash
 $ conda create -n test python=3.9.6 wandb
