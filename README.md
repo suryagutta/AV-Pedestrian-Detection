@@ -58,6 +58,12 @@ YOLOv5 🚀 is a family of object detection architectures and models pretrained 
 See the [YOLOv5 Docs](https://docs.ultralytics.com) for full documentation on training, testing and deployment.
 
 
+## <div align="center">Paper</div>
+
+There is no Yolo-v5 paper. See the [YOLOv5 Paper discussion](https://github.com/ultralytics/yolov5/issues/1333).  
+Yolo-V4 paper can be accessed [here](https://arxiv.org/pdf/2004.10934.pdf)  
+
+
 ## <div align="center">Setup and Run on AWS</div>
 <details open>
 <summary>Setup Weights & Biases account (if you do not have one)</summary>  
