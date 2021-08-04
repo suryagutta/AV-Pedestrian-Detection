@@ -273,7 +273,7 @@ if __name__ == "__main__":
     parser.add_argument('--output_folder', type=str, help="Ouput folder to which the converted files to be written")
     parser.add_argument('--debug', type=str2bool, default='false', help="true or false (default=false)")
     parser.add_argument('--debug_obj', type=str, choices=object_types,
-                        default='bicycle',
+                        default='person',
                         help="'person', 'bicycle', or 'car'")
 
 
